@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Clínica Odontológica em SP | Implantes, Lentes e Clareamento</title>
+    <meta name="description" content="Transforme seu sorriso com tecnologia de ponta e atendimento humanizado. Especialistas em implantes dentários, lentes de contato, clareamento e ortodontia em São Paulo. Agende sua avaliação.">
+    <meta name="keywords" content="dentista, clínica odontológica, implante dentário, clareamento dental, lentes de contato dental, ortodontia, são paulo">
+    
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
+
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <!-- import flaticon -->
+     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: { // Novo: Azul Vibrante
+                            DEFAULT: '#7ADAA5',
+                            dark: '#1D4ED8',
+                        },
+                        secondary: { // Novo: Verde-Água (Teal)
+                            DEFAULT: '#4E71FF',
+                            dark: '#0D9488',
+                        },
+                        tertinary: { // Novo: Laranja Suave
+                            DEFAULT: '#FFA500',
+                            dark: '#F97316',
+                        },
+                        neutral: {
+                           '900': '#101828',
+                           '700': '#344054',
+                           '500': '#667085',
+                           '200': '#EAECF0',
+                           '100': '#F2F4F7',
+                           '50': '#F9FAFB',
+                           'white': '#FFFFFF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Clínica Sorriso Radiante",
+      "url": "https://www.sorrisoradiante.com.br",
+      "logo": "https://www.sorrisoradiante.com.br/logo.svg",
+      "telephone": "+55-11-98765-4321",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Faria Lima, 2000",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "postalCode": "01452-002",
+        "addressCountry": "BR"
+      },
+       "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Adiciona um efeito de transição suave para as animações de entrada */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        ::selection {
+            background-color: #4E71FF;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body class="bg-neutral-white text-neutral-500 font-sans antialiased">
+
+    <!-- ===== Header ===== -->
+    <header id="header" class="bg-neutral-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-neutral-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2" aria-label="Página inicial da Clínica Sorriso Radiante">
+                    <i class="fi fi-rr-sparkles text-secondary"></i>
+                    <span class="font-display text-xl font-semibold text-neutral-900"><span class="text-secondary">Radiante</span> smile</span>
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#diferenciais" class="text-neutral-500 hover:text-primary transition-colors">Diferenciais</a>
+                    <a href="#depoimentos" class="text-neutral-500 hover:text-primary transition-colors">Depoimentos</a>
+                    <a href="#tratamentos" class="text-neutral-500 hover:text-primary transition-colors">Tratamentos</a>
+                    <a href="#contato" class="text-neutral-500 hover:text-primary transition-colors">Contato</a>
+                    <a href="#faq" class="text-neutral-500 hover:text-primary transition-colors">FAQ</a>
+                </nav>
+                <!-- Header CTA -->
+                <div class="hidden md:block">
+                    <a href="#contato" class="bg-primary text-neutral-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm hover:bg-primary-dark transition-all duration-200 ease-in-out">Agendar Avaliação</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" aria-label="Abrir menu" class="text-neutral-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-white border-t border-neutral-200">
+            <nav class="flex flex-col space-y-4 p-4">
+                <a href="#diferenciais" class="text-neutral-500 hover:text-primary transition-colors">Diferenciais</a>
+                <a href="#depoimentos" class="text-neutral-500 hover:text-primary transition-colors">Depoimentos</a>
+                <a href="#tratamentos" class="text-neutral-500 hover:text-primary transition-colors">Tratamentos</a>
+                <a href="#contato" class="text-neutral-500 hover:text-primary transition-colors">Contato</a>
+                <a href="#faq" class="text-neutral-500 hover:text-primary transition-colors">FAQ</a>
+                <a href="#contato" class="bg-primary text-neutral-white text-center w-full mt-4 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm hover:bg-primary-dark transition-all">Agendar Avaliação</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section id="hero" class="pt-32 pb-10 bg-secondary">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in-up">
+                        <div class="inline-flex items-center bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full text-sm mb-4">
+                           <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 0 2l-.15.08a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1 0-2l.15-.08a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            Avaliação com Check-up Digital
+                        </div>
+                        <h1 class="font-display text-4xl md:text-4xl font-semibold text-neutral-white !leading-tight">
+                            O sorriso que você sempre sonhou,<br> agora ao seu alcance
+                        </h1>
+                        <p class="mt-4 text-lg text-neutral-white/80">
+                            Tecnologia de ponta e atendimento humanizado para transformar a sua saúde bucal e autoestima.
+                        </p>
+                        <ul class="mt-6 space-y-2 text-neutral-white/80">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-white/50 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Equipe com os melhores especialistas
+                            </li>
+                             <li class="flex items-center">
+                                <svg class="w-5 h-5 text-white/50 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Tecnologia de ponta para mais conforto
+                            </li>
+                             <li class="flex items-center">
+                                <svg class="w-5 h-5 text-white/50 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                Planos de pagamento flexíveis
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#contato" class="bg-neutral-white text-secondary px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:text-white hover:bg-primary-dark transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                Quero Agendar Minha Avaliação
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fade-in-up" style="transition-delay: 200ms;">
+                        <!-- Figma: Substituir este bloco pela foto da clínica/dentista com paciente -->
+                        <img 
+                            src="https://img.freepik.com/premium-photo/skincare-beauty-women-studio-natural-wellness-facial-routine-with-healthy-glow-happy-cosmetic-friends-with-dermatology-face-brightening-hydration-by-white-background_590464-485289.jpg?w=740" 
+                            alt="[Imagem de uma dentista sorrindo, em um ambiente moderno e claro]"
+                            class="rounded-lg shadow-xl object-cover" style="width:456px;max-width:100%;height:500px"
+                            loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Diferenciais Section ===== -->
+        <section id="diferenciais" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-display text-3xl font-semibold text-neutral-900">Por que escolher a Clínica Radiante Smile?</h2>
+                <p class="mt-2 text-lg max-w-2xl mx-auto text-neutral-500">Oferecemos uma experiência odontológica única, focada no seu conforto e nos melhores resultados.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 text-left">
+                    <!-- Diferencial 1 -->
+                    <div class="p-6 rounded-lg border border-2 border-secondary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <div class="bg-secondary/10 text-secondary w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-neutral-900 mt-4">Tecnologia Avançada</h3>
+                        <p class="mt-1 text-neutral-900">Usamos scanners 3D e raio-x digital para diagnósticos precisos e tratamentos mais rápidos.</p>
+                    </div>
+                    <!-- Diferencial 2 -->
+                    <div class="p-6 rounded-lg border border-2 border-secondary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                         <div class="bg-secondary/10 text-secondary w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-neutral-900 mt-4">Todas as Especialidades</h3>
+                        <p class="mt-1 text-neutral-900">Encontre tudo o que precisa em um só lugar: implantes, ortodontia, estética e mais.</p>
+                    </div>
+                    <!-- Diferencial 3 -->
+                    <div class="p-6 rounded-lg border border-2 border-secondary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                         <div class="bg-secondary/10 text-secondary w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-neutral-900 mt-4">Atendimento Humanizado</h3>
+                        <p class="mt-1 text-neutral-900">Cuidamos de você com carinho e atenção, para que se sinta seguro e relaxado.</p>
+                    </div>
+                    <!-- Diferencial 4 -->
+                    <div class="p-6 rounded-lg border border-2 border-secondary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                         <div class="bg-secondary/10 text-secondary w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-neutral-900 mt-4">Facilidades de Pagamento</h3>
+                        <p class="mt-1 text-neutral-900">Oferecemos parcelamento e aceitamos os principais convênios para viabilizar seu tratamento.</p>
+                    </div>
+                    <!-- Diferencial 5 -->
+                    <div class="p-6 rounded-lg border border-2 border-secondary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                         <div class="bg-secondary/10 text-secondary w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-neutral-900 mt-4">Planejamento Detalhado</h3>
+                        <p class="mt-1 text-neutral-900">Você entende cada etapa do seu tratamento e participa ativamente das decisões.</p>
+                    </div>
+                    <!-- Diferencial 6 -->
+                    <div class="p-6 rounded-lg border border-2 border-secondary/10 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                         <div class="bg-secondary/10 text-secondary w-12 h-12 rounded-lg flex items-center justify-center">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-neutral-900 mt-4">Resultados Comprovados</h3>
+                        <p class="mt-1 text-neutral-900">Nossa maior satisfação é ver a felicidade estampada no sorriso de nossos pacientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Testimonials Section ===== -->
+        <section id="depoimentos" class="py-20 bg-secondary/10">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-display text-3xl font-semibold text-neutral-900">Nossos pacientes recomendam</h2>
+                <p class="mt-2 text-lg max-w-2xl mx-auto text-neutral-900">Veja o que dizem sobre a experiência na Clínica Sorriso Radiante.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 text-left">
+                    <!-- Depoimento 1 (Implante) -->
+                    <div class="bg-neutral-white p-8 rounded-lg shadow-sm">
+                        <div class="text-tertinary text-xl">★★★★★</div>
+                        <blockquote class="mt-4 text-neutral-700">
+                            "Recuperei a confiança para sorrir. O processo do implante foi indolor e o resultado ficou extremamente natural. Equipe fantástica e muito cuidadosa."
+                        </blockquote>
+                        <div class="mt-6">
+                            <p class="font-semibold text-neutral-900">Roberto Almeida</p>
+                            <p class="text-sm text-neutral-500">Aposentado</p>
+                        </div>
+                    </div>
+                    <!-- Depoimento 2 (Estética) -->
+                    <div class="bg-neutral-white p-8 rounded-lg shadow-sm">
+                        <div class="text-tertinary text-xl">★★★★★</div>
+                        <blockquote class="mt-4 text-neutral-700">
+                            "Fiz clareamento e o resultado superou minhas expectativas! O ambiente da clínica é muito agradável e o atendimento é nota 10. Recomendo de olhos fechados."
+                        </blockquote>
+                        <div class="mt-6">
+                            <p class="font-semibold text-neutral-900">Camila Borges</p>
+                            <p class="text-sm text-neutral-500">Advogada</p>
+                        </div>
+                    </div>
+                    <!-- Depoimento 3 (Ortodontia) -->
+                    <div class="bg-neutral-white p-8 rounded-lg shadow-sm">
+                        <div class="text-tertinary text-xl">★★★★★</div>
+                        <blockquote class="mt-4 text-neutral-700">
+                           "Finalizei meu tratamento com os alinhadores invisíveis e amei! Muito mais prático e discreto que o aparelho convencional. A Dra. Fernanda é uma profissional incrível."
+                        </blockquote>
+                        <div class="mt-6">
+                            <p class="font-semibold text-neutral-900">Lucas Pereira</p>
+                            <p class="text-sm text-neutral-500">Psicólogo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== Tratamentos Section ===== -->
+        <section id="tratamentos" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-display text-3xl font-semibold text-neutral-900">Nossos Principais Tratamentos</h2>
+                <p class="mt-2 text-lg max-w-2xl mx-auto text-neutral-500">Soluções personalizadas para restaurar a saúde e a beleza do seu sorriso.</p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Implantes Dentários -->
+                    <div class="border border-neutral-200 rounded-lg p-8 text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <span class="font-semibold text-primary">Reabilitação Oral</span>
+                        <h3 class="font-display text-2xl font-semibold text-neutral-900 mt-2">Implantes Dentários</h3>
+                        <ul class="mt-4 space-y-3 text-neutral-500">
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Devolve a função mastigatória com segurança.</span></li>
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Resultado estético natural e duradouro.</span></li>
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Procedimento realizado por especialistas experientes.</span></li>
+                        </ul>
+                        <a href="#contato" class="mt-6 inline-block w-full text-center bg-primary/70 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">Saiba Mais</a>
+                    </div>
+                    <!-- Estética do Sorriso -->
+                    <div class="border border-neutral-200 rounded-lg p-8 text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <span class="font-semibold text-primary">Beleza e Harmonia</span>
+                        <h3 class="font-display text-2xl font-semibold text-neutral-900 mt-2">Estética do Sorriso</h3>
+                         <ul class="mt-4 space-y-3 text-neutral-500">
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Clareamento dental a laser para dentes mais brancos.</span></li>
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Lentes de contato dental para um sorriso perfeito.</span></li>
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Planejamento digital do sorriso (DSD).</span></li>
+                        </ul>
+                        <a href="#contato" class="mt-6 inline-block w-full text-center bg-primary/70 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">Saiba Mais</a>
+                    </div>
+                    <!-- Odontologia Estética -->
+                    <div class="border border-tertinary rounded-lg p-8 text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300 relative">
+                        <span class="absolute top-0 -translate-y-1/2 bg-tertinary text-white text-xs font-bold px-3 py-1 rounded-full">MAIS POPULAR</span>
+                        <span class="font-semibold text-tertinary">Alinhamento Discreto</span>
+                        <h3 class="font-display text-2xl font-semibold text-neutral-900 mt-2">Ortodontia com Alinhadores Invisíveis</h3>
+                         <ul class="mt-4 space-y-3 text-neutral-500">
+                            <li class="flex items-start"><span class="text-tertinary mr-2 mt-1">✔</span><span>Correção ortodôntica sem aparelhos metálicos.</span></li>
+                            <li class="flex items-start"><span class="text-tertinary mr-2 mt-1">✔</span><span>Mais conforto e praticidade no dia a dia.</span></li>
+                            <li class="flex items-start"><span class="text-tertinary mr-2 mt-1">✔</span><span>Resultados previsíveis com tecnologia digital.</span></li>
+                        </ul>
+                        <a href="#contato" class="mt-6 inline-block w-full text-center bg-tertinary text-white px-6 py-3 rounded-lg font-semibold hover:bg-tertinary/50 hover:text-white transition-colors">Saiba Mais</a>
+                    </div>
+                    <!-- Odontologia Preventiva -->
+                    <div class="border border-neutral-200 rounded-lg p-8 text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <span class="font-semibold text-primary">Saúde Bucal</span>
+                        <h3 class="font-display text-2xl font-semibold text-neutral-900 mt-2">Avaliação e Check-up Digital</h3>
+                         <ul class="mt-4 space-y-3 text-neutral-500">
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Diagnóstico preciso com tecnologia digital.</span></li>
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Prevenção de doenças bucais e manutenção da saúde.</span></li>
+                            <li class="flex items-start"><span class="text-primary/70 mr-2 mt-1">✔</span><span>Plano de tratamento personalizado para suas necessidades.</span></li>
+                        </ul>
+                        <a href="#contato" class="mt-6 inline-block w-full text-center bg-primary/70 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Form Section ===== -->
+        <section id="contato" class="py-20 bg-neutral-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-xl mx-auto">
+                    <div class="text-center">
+                        <h2 class="font-display text-3xl font-semibold text-neutral-900">Agende sua avaliação</h2>
+                        <p class="mt-2 text-lg text-neutral-500">Preencha o formulário e nossa equipe entrará em contato para marcar o melhor horário para você.</p>
+                    </div>
+                    <div id="form-container" class="mt-8 bg-neutral-white p-8 rounded-lg shadow-md">
+                        <form id="lead-form">
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-neutral-700">Nome completo</label>
+                                    <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 border border-neutral-200 rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-neutral-700">E-mail</label>
+                                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 border border-neutral-200 rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-neutral-700">Telefone / WhatsApp</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="(XX) XXXXX-XXXX" class="mt-1 block w-full px-3 py-2 border border-neutral-200 rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                                </div>
+                                <div>
+                                    <label for="treatment_interest" class="block text-sm font-medium text-neutral-700">Qual tratamento você tem interesse?</label>
+                                    <select id="treatment_interest" name="treatment_interest" class="mt-1 block w-full px-3 py-2 border border-neutral-200 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                                        <option value="">Selecione uma opção...</option>
+                                        <option value="avaliacao">Avaliação / Check-up</option>
+                                        <option value="implantes">Implantes Dentários</option>
+                                        <option value="aparelho">Aparelho Ortodôntico</option>
+                                        <option value="clareamento">Clareamento Dental</option>
+                                        <option value="lentes">Lentes de Contato</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-start">
+                                    <input id="lgpd" name="lgpd" type="checkbox" required class="h-4 w-4 text-primary focus:ring-primary border-neutral-200 rounded mt-0.5">
+                                    <label for="lgpd" class="ml-3 block text-sm text-neutral-500">
+                                        Concordo em receber contato da clínica para agendamento e informações, conforme a <a href="#" class="underline">Política de Privacidade</a>.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <button type="submit" class="w-full bg-secondary text-white py-3 px-6 border border-transparent rounded-lg shadow-sm text-base font-medium hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all">
+                                    Enviar e Agendar Avaliação
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                     <div id="success-message" class="hidden mt-8 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert">
+                        <p class="font-bold">Obrigado!</p>
+                        <p>Recebemos sua solicitação. Em breve nossa equipe entrará em contato para confirmar o agendamento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ Section ===== -->
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="font-display text-3xl font-semibold text-neutral-900">Dúvidas Frequentes</h2>
+                    <p class="mt-2 text-lg text-neutral-500">Respostas para as perguntas mais comuns sobre nossos tratamentos.</p>
+                </div>
+                <div class="mt-12 max-w-3xl mx-auto space-y-6 text-left">
+                    <div class="border-b border-neutral-200 pb-4">
+                        <h3 class="font-semibold text-lg text-neutral-900">Vocês aceitam convênios odontológicos?</h3>
+                        <p class="mt-2 text-neutral-500">Sim, aceitamos uma ampla gama de convênios. Entre em contato com nossa equipe para verificar a cobertura do seu plano e agendar sua consulta.</p>
+                    </div>
+                     <div class="border-b border-neutral-200 pb-4">
+                        <h3 class="font-semibold text-lg text-neutral-900">O tratamento de implante dentário dói?</h3>
+                        <p class="mt-2 text-neutral-500">O procedimento é realizado com anestesia local, tornando-o indolor. Utilizamos técnicas modernas para garantir o máximo de conforto, e o pós-operatório é geralmente tranquilo com a medicação prescrita.</p>
+                    </div>
+                     <div class="border-b border-neutral-200 pb-4">
+                        <h3 class="font-semibold text-lg text-neutral-900">Quanto tempo dura o resultado do clareamento dental?</h3>
+                        <p class="mt-2 text-neutral-500">A durabilidade varia de acordo com os hábitos de cada paciente, mas em média, o resultado pode durar de 1 a 2 anos. Uma boa higiene bucal e evitar alimentos com corantes ajudam a prolongar o efeito.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-neutral-900">A primeira avaliação tem custo?</h3>
+                        <p class="mt-2 text-neutral-500">Oferecemos uma avaliação inicial completa, com check-up digital, para que você conheça nossa estrutura e equipe, e para que possamos elaborar um plano de tratamento personalizado para você. Consulte as condições com nossa equipe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- ===== Footer ===== -->
+    <footer class="bg-neutral-900 text-neutral-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                     <a href="#" class="flex items-center space-x-2" aria-label="Página inicial da Clínica Radiante Smile">
+                        <i class="fi fi-rr-sparkles text-secondary"></i>
+                        <span class="font-display text-xl font-semibold text-white">Radiante Smile</span>
+                    </a>
+                    <p class="mt-4 text-neutral-200">Sua saúde bucal em primeiro lugar.</p>
+                    <p class="mt-2 text-sm text-neutral-200">CNPJ: 11.222.333/0001-44 | CRO-SP: 12345</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white">Contato</h4>
+                    <ul class="mt-4 space-y-2 text-neutral-200">
+                        <li>Av. Faria Lima, 2000 - São Paulo, SP</li>
+                        <li><a href="mailto:contato@sorrisoradiante.com.br" class="hover:text-primary">contato@sorrisoradiante.com.br</a></li>
+                        <li><a href="tel:+5511987654321" class="hover:text-primary">(11) 98765-4321</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white">Links Úteis</h4>
+                    <ul class="mt-4 space-y-2 text-neutral-200">
+                        <li><a href="#diferenciais" class="hover:text-primary">Nossos diferenciais</a></li>
+                        <li><a href="#depoimentos" class="hover:text-primary">Depoimentos</a></li>
+                        <li><a href="#tratamentos" class="hover:text-primary">Tratamentos</a></li>
+                        <li><a href="#faq" class="hover:text-primary">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-neutral-700 text-center text-sm text-neutral-500">
+                <p>&copy; <span id="current-year"></span> Clínica Sorriso Radiante. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send?phone=5511987654321&text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Fale conosco pelo WhatsApp"
+       class="fixed bottom-20 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transform hover:scale-110 transition-all z-40">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+    <!-- Sticky Mobile CTA Bar -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-neutral-white p-3 border-t border-neutral-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] z-40">
+        <a href="#contato" class="w-full block text-center bg-secondary text-white py-3 px-4 rounded-lg font-semibold hover:bg-secondary-dark transition-colors">
+            Agendar Avaliação
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (this.getAttribute('href') === '#') return;
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const headerOffset = document.getElementById('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+
+            // Form Submission Simulation
+            const leadForm = document.getElementById('lead-form');
+            const formContainer = document.getElementById('form-container');
+            const successMessage = document.getElementById('success-message');
+            leadForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formContainer.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                setInterval(() => {
+                    formContainer.classList.remove('hidden');
+                    successMessage.classList.add('hidden');
+                    leadForm.reset();
+                }, 3500);
+            });
+
+            // Phone Mask (BR format)
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.substring(0, 11);
+                if (value.length > 2) {
+                    value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+                }
+                if (value.length > 9) {
+                    value = `${value.substring(0, 10)}-${value.substring(10)}`;
+                }
+                e.target.value = value;
+            });
+
+            // Fade-in animation on scroll
+            const faders = document.querySelectorAll('.fade-in-up');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+
+            // Current Year in Footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+        
+    </script>
+</body>
+</html>
+
